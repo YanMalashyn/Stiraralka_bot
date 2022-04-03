@@ -1,5 +1,6 @@
 package com.example.stiraralka_bot.bot;
 
+import com.example.stiraralka_bot.handler.NonCommand;
 import lombok.Getter;
 import lombok.SneakyThrows;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,7 +28,7 @@ public class Stiraralka extends TelegramLongPollingCommandBot {
 
     //Класс для обработки сообщений, не являющихся командой
     @Autowired
-    private  NonCommand nonCommand;
+    private NonCommand nonCommand;
 
 
 

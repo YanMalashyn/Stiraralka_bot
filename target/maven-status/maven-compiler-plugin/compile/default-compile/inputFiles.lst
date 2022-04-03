@@ -1,7 +1,11 @@
-C:\Users\miair\IdeaProjects\Stiraralka_bot\src\main\java\com\example\stiraralka_bot\bot\NonCommand.java
 C:\Users\miair\IdeaProjects\Stiraralka_bot\src\main\java\com\example\stiraralka_bot\config\SpringWebhookBot.java
 C:\Users\miair\IdeaProjects\Stiraralka_bot\src\main\java\com\example\stiraralka_bot\bot\Stiraralka.java
 C:\Users\miair\IdeaProjects\Stiraralka_bot\src\main\java\com\example\stiraralka_bot\StiraralkaBotApplication.java
 C:\Users\miair\IdeaProjects\Stiraralka_bot\src\main\java\com\example\stiraralka_bot\config\TelegramBotConfig.java
+C:\Users\miair\IdeaProjects\Stiraralka_bot\src\main\java\com\example\stiraralka_bot\handler\AbstracktHandler.java
 C:\Users\miair\IdeaProjects\Stiraralka_bot\src\main\java\com\example\stiraralka_bot\config\TelegramBotInitializer.java
+C:\Users\miair\IdeaProjects\Stiraralka_bot\src\main\java\com\example\stiraralka_bot\handler\ExchangeRate.java
+C:\Users\miair\IdeaProjects\Stiraralka_bot\src\main\java\com\example\stiraralka_bot\handler\Weather.java
+C:\Users\miair\IdeaProjects\Stiraralka_bot\src\main\java\com\example\stiraralka_bot\handler\PahaTalks.java
+C:\Users\miair\IdeaProjects\Stiraralka_bot\src\main\java\com\example\stiraralka_bot\handler\NonCommand.java
 C:\Users\miair\IdeaProjects\Stiraralka_bot\src\main\java\com\example\stiraralka_bot\config\AfterBotRegistration.java
