@@ -23,7 +23,8 @@ public class NonCommand {
                 .flatMap(x -> Arrays.stream(x.split("\\?")))
                 .flatMap(x -> Arrays.stream(x.split("\\.")))
                 .filter(x -> x.equalsIgnoreCase("паха") || x.equalsIgnoreCase("пахе") ||
-                        x.equalsIgnoreCase("пахой") || x.equalsIgnoreCase("паху"))
+                        x.equalsIgnoreCase("пахой") || x.equalsIgnoreCase("паху")
+                || x.equalsIgnoreCase("пахи"))
                 .count();
         if(count > 0) {
             int b = pachyPhrases.values().length-1;
