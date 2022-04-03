@@ -12,7 +12,7 @@ public class Top250FilmHandler {
     private Top250filmService top250filmService;
 
     public Optional<String> getFilm(){
-        int id = (int) Math.round(Math.random()*2);
+        int id = 1 + (int) Math.round(Math.random()*2);
         return top250filmService.getFilmById(id);
     }
 
