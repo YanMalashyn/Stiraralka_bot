@@ -1,0 +1,8 @@
+com\example\stiraralka_bot\bot\Stiraralka.class
+com\example\stiraralka_bot\StiraralkaBotApplication.class
+com\example\stiraralka_bot\config\TelegramBotConfig.class
+com\example\stiraralka_bot\bot\NonCommand.class
+com\example\stiraralka_bot\config\AfterBotRegistration.class
+com\example\stiraralka_bot\config\SpringWebhookBot$TestSpringWebhookBot.class
+com\example\stiraralka_bot\config\SpringWebhookBot.class
+com\example\stiraralka_bot\config\TelegramBotInitializer.class
