@@ -31,4 +31,5 @@ public class TelegramBotConfig {
                 longPollingBots.getIfAvailable(Collections::emptyList),
                 webHookBots.getIfAvailable(Collections::emptyList));
     }
+
 }
