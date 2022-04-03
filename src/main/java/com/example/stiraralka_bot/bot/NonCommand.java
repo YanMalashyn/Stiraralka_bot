@@ -21,7 +21,9 @@ public class NonCommand {
                 .flatMap(x -> Arrays.stream(x.split(",")))
                 .flatMap(x -> Arrays.stream(x.split("!")))
                 .flatMap(x -> Arrays.stream(x.split("\\.")))
-                .filter(x -> x.equals("Паха") || x.equals("Пахе") || x.equals("паха") || x.equals("пахе")).count();
+                .filter(x -> x.equalsIgnoreCase("паха") || x.equalsIgnoreCase("пахе") ||
+                        x.equalsIgnoreCase("пахой") || x.equalsIgnoreCase("паху"))
+                .count();
         if(count > 0) {
             int b = pachyPhrases.values().length-1;
             long result = Math.round(Math.random()*b);
