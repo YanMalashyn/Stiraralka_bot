@@ -3,3 +3,13 @@ telegram:
   webhook-path: "https://quiet-lowlands-60625.herokuapp.com/"
   bot-name: "@Stiraralka_bot"
   bot-token: "5121364075:AAG4ybOP_vUKF6ovnd-RkrGzpPHEbUBgwSE"
+spring:
+  datasource:
+    url: jdbc:postgresql://ec2-34-231-63-30.compute-1.amazonaws.com:5432/d6s876bar5ock6?user=bksjxywclkiyrb&password=9b81d82c47e189f1938dcf3e78bb669cc9ad8b4111320356bb715b0ebdbe039d
+    driver-class-name: org.postgresql.Driver
+    initialization-mode: never
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    show-sql: true
+    hibernate:
+      ddl-auto: update

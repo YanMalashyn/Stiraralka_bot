@@ -1,56 +1,45 @@
 package com.example.stiraralka_bot.handler;
 
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.util.Arrays;
+import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * Обработка сообщения, не являющегося командой (т.е. обычного текста не начинающегося с "/")
  */
 @Component
 public class NonCommand {
+
+    @Autowired
+    private PahaTalks pahaTalks;
+    @Autowired
+    private Top250FilmHandler top250FilmHandler;
+
+
     public String nonCommandExecute(Long chatId, String userName, String text) {
-        return tryToFindPaha(text);
+        int result = whatToDo(text);
+        switch (result){
+            case 0: return pahaTalks.tryToFindPaha(text);
+            case 1: return top250FilmHandler.getFilm().get();
+        }
+        return pahaTalks.tryToFindPaha(text);
     }
 
 
-    private String tryToFindPaha(String text){
-        long count = text.lines()
-                .flatMap(x -> Arrays.stream(x.split(" ")))
-                .flatMap(x -> Arrays.stream(x.split(",")))
-                .flatMap(x -> Arrays.stream(x.split("!")))
-                .flatMap(x -> Arrays.stream(x.split("\\?")))
-                .flatMap(x -> Arrays.stream(x.split("\\.")))
-                .filter(x -> x.equalsIgnoreCase("паха") || x.equalsIgnoreCase("пахе") ||
-                        x.equalsIgnoreCase("пахой") || x.equalsIgnoreCase("паху")
-                || x.equalsIgnoreCase("пахи"))
-                .count();
-        if(count > 0) {
-            int b = pachyPhrases.values().length-1;
-            long result = Math.round(Math.random()*b);
-            return pachyPhrases.values()[(int)result].getS();
+    private int whatToDo(String text){
+        List<String> collect = text.lines().flatMap(x -> Arrays.stream(x.split(" "))).collect(Collectors.toList());
+        if(collect.stream().anyMatch(x -> x.equalsIgnoreCase("фильм"))){
+            return 1;
         }
-        return "";
+        return 0;
     }
 
-    enum pachyPhrases{
-        one("Ебать ту Люсю"), two("хвост-чешуя"), three("бойлер работает"), foth("без пизды"), five("а шо ты?"),
-        six("до центра 5к"), seven("канистру не забудь"), eight("пацаны, простите"), nine("да бля, тут нечего ловить"),
-        ten("в финку погоню"), eleven("копеечку свою имею"), twelve("звони, перетрём"),
-        one1("да пздц, что-то все потерялись"), one2("бочка круглая"), one3("Стас, не еби головы"),
-        one4("да я и сам в ахуе с цен"), one5("пивка да в баньку"), one6("саня сам виноват"),
-        one7("Серый, женился уже?");
 
-        public String getS() {
-            return s;
-        }
 
-        private String s;
-        pachyPhrases(String s){
-            this.s = s;
-        }
-    }
 
 }
 

@@ -20,6 +20,20 @@
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <maven.compiler.source>11</maven.compiler.source>
         <maven.compiler.target>11</maven.compiler.target>
+
+        <!-- Hibernate -->
+        <hibernate.version>5.4.31.Final</hibernate.version>
+
+        <!-- Tests  -->
+        <assertj.version>3.16.1</assertj.version>
+        <mockito.version>3.10.0</mockito.version>
+
+        <!--DB-->
+        <postgresql.version>42.3.3</postgresql.version>
+        <flyway.version>8.5.4</flyway.version>
+
+        <jackson-json.version>2.13.0</jackson-json.version>
+
     </properties>
     <dependencies>
         <dependency>
@@ -50,6 +64,32 @@
             <artifactId>telegrambotsextensions</artifactId>
             <version>${telegram.version}</version>
         </dependency>
+
+        <!--DataBase-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-jpa</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.postgresql</groupId>
+            <artifactId>postgresql</artifactId>
+            <version>${postgresql.version}</version>
+        </dependency>
+
+<!--        <dependency>-->
+<!--            <groupId>org.flywaydb</groupId>-->
+<!--            <artifactId>flyway-core</artifactId>-->
+<!--            <version>${flyway.version}</version>-->
+<!--        </dependency>-->
+
+<!--        <dependency>-->
+<!--            <groupId>com.h2database</groupId>-->
+<!--            <artifactId>h2</artifactId>-->
+<!--            <version>2.1.210</version>-->
+<!--        </dependency>-->
+
+
 
     </dependencies>
 
