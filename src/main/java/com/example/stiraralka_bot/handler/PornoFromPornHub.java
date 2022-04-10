@@ -28,7 +28,7 @@ public class PornoFromPornHub implements AbstractBotAbility{
             //Create connection
             URL url;
             System.out.println(name);
-            if(name.equals("Stanislau13")){
+            if(name.equals("Stanislau14")){
                 url = new URL("https://rt.pornhub.com/gay/video/random");
             }else {
                 url = new URL("https://rt.pornhub.com/video/random");
