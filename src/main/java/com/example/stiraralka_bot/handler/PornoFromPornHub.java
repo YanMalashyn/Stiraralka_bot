@@ -1,36 +1,36 @@
 package com.example.stiraralka_bot.handler;
 
-import org.springframework.boot.web.client.RestTemplateBuilder;
 import org.springframework.stereotype.Component;
 
 import java.io.*;
 import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
 import java.net.URL;
-import java.net.URLEncoder;
 import java.util.Arrays;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 import java.util.stream.Collectors;
 
 @Component
 public class PornoFromPornHub implements AbstractBotAbility{
     @Override
-    public String getResponse(String s) {
+    public String getResponse(String s, String name) {
         List<String> collect = s.lines().flatMap(x -> Arrays.stream(x.split(" "))).collect(Collectors.toList());
         if(collect.stream().anyMatch(x -> x.equalsIgnoreCase("порно"))){
-            return randomPorno();
+            return randomPorno(name);
         }
         return "";
     }
 
-    private String randomPorno() {
+    private String randomPorno(String name) {
         HttpURLConnection connection = null;
         StringBuilder response = new StringBuilder();
         try {
             //Create connection
-            URL url = new URL("https://rt.pornhub.com/video/random");
+            URL url;
+            if(name.equals("Stanislau13")){
+                url = new URL("https://rt.pornhub.com/gay/video/random");
+            }else {
+                url = new URL("https://rt.pornhub.com/video/random");
+            }
             connection = (HttpURLConnection) url.openConnection();
             connection.setRequestMethod("GET");
             connection.setRequestProperty("Content-Type",
@@ -66,8 +66,7 @@ public class PornoFromPornHub implements AbstractBotAbility{
                 connection.disconnect();
             }
         }
-        String s= response.toString().substring(response.indexOf("href=\"")+6, response.indexOf("\" />"));
-        return s;
+        return response.substring(response.indexOf("href=\"")+6, response.indexOf("\" />"));
 
 
     }

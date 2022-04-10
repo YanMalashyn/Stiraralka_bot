@@ -21,9 +21,9 @@ public class NonCommand {
 
     public String nonCommandExecute(Long chatId, String userName, String text) {
         Map<BotAbilityEnum,String> map = new HashMap<>();
-        map.put(BotAbilityEnum.SPEAK_LIKE_PAHA, talksLikePahaImpl.getResponse(text));
-        map.put(BotAbilityEnum.GET_RANDOM_Film, top250FilmImpl.getResponse(text));
-        map.put(BotAbilityEnum.GET_RANDOM_PORNO, pornoFromPornHub.getResponse(text));
+        map.put(BotAbilityEnum.SPEAK_LIKE_PAHA, talksLikePahaImpl.getResponse(text, userName));
+        map.put(BotAbilityEnum.GET_RANDOM_Film, top250FilmImpl.getResponse(text, userName));
+        map.put(BotAbilityEnum.GET_RANDOM_PORNO, pornoFromPornHub.getResponse(text, userName));
         return responseConstructor(map, userName);
 
 

@@ -8,7 +8,7 @@ import java.util.Arrays;
 public class TalksLikePahaImpl implements AbstractBotAbility {
 
     @Override
-    public String getResponse(String text){
+    public String getResponse(String text, String name){
         long count = text.lines()
                 .flatMap(x -> Arrays.stream(x.split(" ")))
                 .flatMap(x -> Arrays.stream(x.split(",")))
