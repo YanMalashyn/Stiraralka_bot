@@ -5,9 +5,10 @@ import org.springframework.stereotype.Component;
 import java.util.Arrays;
 
 @Component
-public class PahaTalks {
+public class TalksLikePahaImpl implements AbstractBotAbility {
 
-    public String tryToFindPaha(String text){
+    @Override
+    public String getResponse(String text){
         long count = text.lines()
                 .flatMap(x -> Arrays.stream(x.split(" ")))
                 .flatMap(x -> Arrays.stream(x.split(",")))
@@ -19,14 +20,16 @@ public class PahaTalks {
                         || x.equalsIgnoreCase("пахи"))
                 .count();
         if(count > 0) {
-            int b = PahaTalks.pachyPhrases.values().length-1;
+            int b = TalksLikePahaImpl.pachyPhrases.values().length-1;
             long result = Math.round(Math.random()*b);
-            return PahaTalks.pachyPhrases.values()[(int)result].getS();
+            return TalksLikePahaImpl.pachyPhrases.values()[(int)result].getS();
         }
         return "";
     }
 
-    enum pachyPhrases{
+
+
+  private  enum pachyPhrases{
         one("Ебать ту Люсю"), two("хвост-чешуя"), three("бойлер работает"), foth("без пизды"), five("а шо ты?"),
         six("до центра 5к"), seven("канистру не забудь"), eight("пацаны, простите"), nine("да бля, тут нечего ловить"),
         ten("в финку погоню"), eleven("копеечку свою имею"), twelve("звони, перетрём"),

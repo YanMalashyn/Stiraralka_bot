@@ -4,9 +4,7 @@ package com.example.stiraralka_bot.handler;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import java.util.Arrays;
-import java.util.List;
-import java.util.stream.Collectors;
+import java.util.*;
 
 /**
  * Обработка сообщения, не являющегося командой (т.е. обычного текста не начинающегося с "/")
@@ -15,30 +13,34 @@ import java.util.stream.Collectors;
 public class NonCommand {
 
     @Autowired
-    private PahaTalks pahaTalks;
+    private TalksLikePahaImpl talksLikePahaImpl;
     @Autowired
-    private Top250FilmHandler top250FilmHandler;
-
+    private Top250FilmImpl top250FilmImpl;
+    @Autowired
+    BotAbilityEnum botAbilityEnum;
 
     public String nonCommandExecute(Long chatId, String userName, String text) {
-        int result = whatToDo(text);
-        switch (result){
-            case 0: return pahaTalks.tryToFindPaha(text);
-            case 1: return top250FilmHandler.getFilm().get();
-        }
-        return pahaTalks.tryToFindPaha(text);
+        Map<BotAbilityEnum,String> map = new HashMap<>();
+        map.put(BotAbilityEnum.SPEAK_LIKE_PAHA, talksLikePahaImpl.getResponse(text));
+        map.put(BotAbilityEnum.GET_RANDOM_Film, top250FilmImpl.getResponse(text));
+        return responseConstructor(map, userName);
+
+
     }
 
 
-    private int whatToDo(String text){
-        List<String> collect = text.lines().flatMap(x -> Arrays.stream(x.split(" "))).collect(Collectors.toList());
-        if(collect.stream().anyMatch(x -> x.equalsIgnoreCase("фильм"))){
-            return 1;
+    private String responseConstructor(Map<BotAbilityEnum, String> map, String userName){
+        StringBuilder stringBuilder = new StringBuilder();
+        Iterator<BotAbilityEnum> iterator = Arrays.stream(BotAbilityEnum.values()).iterator();
+        while (iterator.hasNext()){
+            iterator.next();
+            if(!map.get(iterator).equals("")){
+                stringBuilder.append(userName).append(", ").append(map.get(iterator));
+                return stringBuilder.toString();
+            }
         }
-        return 0;
+        return "";
     }
-
-
 
 
 }
