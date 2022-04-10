@@ -89,9 +89,7 @@ public class Stiraralka extends TelegramLongPollingCommandBot {
 
     @Override
     public void onUpdatesReceived(List<Update> updates) {
-//        if(updates!=null){
-//            super.onUpdatesReceived(updates);
-//        }
+            super.onUpdatesReceived(updates);
     }
 
     @Override
