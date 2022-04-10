@@ -5,7 +5,7 @@ telegram:
   bot-token: "5121364075:AAG4ybOP_vUKF6ovnd-RkrGzpPHEbUBgwSE"
 spring:
   datasource:
-    url: jdbc:postgresql://ec2-34-231-63-30.compute-1.amazonaws.com:5432/d6s876bar5ock6?user=bksjxywclkiyrb&password=9b81d82c47e189f1938dcf3e78bb669cc9ad8b4111320356bb715b0ebdbe039d
+    url: jdbc:postgresql://ec2-3-223-213-207.compute-1.amazonaws.com:5432/d2k7sd44bv9qk?user=yibwakhuejhvlz&password=885252de5303d1f3899719bb9a7aee0988b330db56ad8b6cbd08a7ad1c8cf35d
     driver-class-name: org.postgresql.Driver
     initialization-mode: never
   jpa:

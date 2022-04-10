@@ -17,7 +17,7 @@ public class Top250FilmImpl implements AbstractBotAbility {
     public String getResponse(String s) {
         List<String> collect = s.lines().flatMap(x -> Arrays.stream(x.split(" "))).collect(Collectors.toList());
         if(collect.stream().anyMatch(x -> x.equalsIgnoreCase("фильм"))){
-            int id = 1 + (int) Math.round(Math.random()*2);
+            int id = 1 + (int) Math.round(Math.random()*249);
             return top250filmService.getFilmById(id).get();
         }
         return "";

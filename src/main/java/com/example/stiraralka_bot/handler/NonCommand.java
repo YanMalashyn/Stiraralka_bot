@@ -17,12 +17,13 @@ public class NonCommand {
     @Autowired
     private Top250FilmImpl top250FilmImpl;
     @Autowired
-    BotAbilityEnum botAbilityEnum;
+    private PornoFromPornHub pornoFromPornHub;
 
     public String nonCommandExecute(Long chatId, String userName, String text) {
         Map<BotAbilityEnum,String> map = new HashMap<>();
         map.put(BotAbilityEnum.SPEAK_LIKE_PAHA, talksLikePahaImpl.getResponse(text));
         map.put(BotAbilityEnum.GET_RANDOM_Film, top250FilmImpl.getResponse(text));
+        map.put(BotAbilityEnum.GET_RANDOM_PORNO, pornoFromPornHub.getResponse(text));
         return responseConstructor(map, userName);
 
 
@@ -33,9 +34,9 @@ public class NonCommand {
         StringBuilder stringBuilder = new StringBuilder();
         Iterator<BotAbilityEnum> iterator = Arrays.stream(BotAbilityEnum.values()).iterator();
         while (iterator.hasNext()){
-            iterator.next();
-            if(!map.get(iterator).equals("")){
-                stringBuilder.append(userName).append(", ").append(map.get(iterator));
+            BotAbilityEnum next = iterator.next();
+            if(!map.get(next).equals("")){
+                stringBuilder.append(userName).append(", ").append(map.get(next));
                 return stringBuilder.toString();
             }
         }
