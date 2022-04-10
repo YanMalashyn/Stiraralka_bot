@@ -11,6 +11,7 @@ import java.util.stream.Collectors;
 
 @Component
 public class PornoFromPornHub implements AbstractBotAbility{
+
     @Override
     public String getResponse(String s, String name) {
         List<String> collect = s.lines().flatMap(x -> Arrays.stream(x.split(" "))).collect(Collectors.toList());
@@ -26,6 +27,7 @@ public class PornoFromPornHub implements AbstractBotAbility{
         try {
             //Create connection
             URL url;
+            System.out.println(name);
             if(name.equals("Stanislau13")){
                 url = new URL("https://rt.pornhub.com/gay/video/random");
             }else {
@@ -72,3 +74,5 @@ public class PornoFromPornHub implements AbstractBotAbility{
     }
 
 }
+
+
